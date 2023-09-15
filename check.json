@@ -1,0 +1,185 @@
+{
+  "data_movement_tag_details" : [],
+  "data" : [
+    {
+      "data_movement_name" : "postgres_s3_43375_sp",
+      "description" : "",
+      "target_relative_path" : "[%pipeline_name%]/[%pipeline_id%]/[%pipeline_lastrun_ts%]/[%pipeline_start_ts%]/[%pipeline_run_id%]/[%pipeline_start_year%]/[%pipeline_start_month%]/[%pipeline_start_day%]/[%pipeline_start_date%]/[%pipeline_start_time%]/[%pipeline_start_hour%]/[%pipeline_start_minute%]/[%pipeline_start_second%]/[%current_year%]/[%current_month%]/[%current_day%]/[%current_date%]/[%current_timestamp%]/[%current_time%]/[%current_hour%]/[%current_minute%]/[%source_schema_name%]/[%source_database_name%]/[%source_schema_name_lowercase%]/[%source_database_name_lowercase%]/[%source_schema_name_uppercase%]/[%source_database_name_uppercase%]/[%source_object_name%]/[%source_object_name_lowercase%]/[%source_object_name_uppercase%]",
+      "overwrite_default_relative_path" : true,
+      "source_relative_target_path" : "Yes",
+      "destination_dataplace_name" : "crawlings31694386602735",
+      "user_variables_details" : [],
+      "destination_schema_name" : "nabuingestion",
+      "ingestion_connection_type" : null,
+      "ingestion_table_format" : {
+        "database_name" : true,
+        "prefix" : true,
+        "prefix_value" : "pre",
+        "schema_name" : true
+      },
+      "workflow_engine_name" : "ingestion_workflow_engine",
+      "compute_engine_name" : "Standalone Spark Engine1694386758947",
+      "compute_engine_details" : {
+        "compute_engine_name" : "Standalone Spark Engine1694386758947",
+        "engine_type" : "Spark",
+        "engine_sub_type" : "Standalone-Almaren"
+      },
+      "source_type" : "postgres",
+      "destination_type" : "s3",
+      "bot_priority" : "Default",
+      "advance_table_options" : [
+        {
+          "columns_options" : {
+            "virtual_column" : []
+          },
+          "CDC" : {
+            "audit_columns" : {
+              "prev_process_id_column_name" : "prev_process_id",
+              "end_date_column_name" : "valid_to_ts",
+              "process_id_column_name" : "process_id",
+              "start_date_column_name" : "valid_from_ts"
+            },
+            "CDC_process_type" : "",
+            "add_audit_columns" : false,
+            "CDC_type" : "",
+            "create_view" : false,
+            "hash_type" : "",
+            "view_name" : "v_action_type"
+          },
+          "sort_by_columns" : [],
+          "CDC_columns_ids" : null,
+          "incremental_load" : {
+            "condition_values" : [],
+            "where_clause" : ""
+          },
+          "columns" : [
+            "action_type",
+            "description",
+            "parent_type",
+            "test"
+          ],
+          "parallel_ingestion" : {
+            "max_connections" : 1,
+            "enable" : false
+          },
+          "remove_duplicates" : {
+            "sort_columns" : [],
+            "key_columns" : []
+          },
+          "schema_name" : "chembl",
+          "reorder_columns" : null,
+          "table_name" : "action_type",
+          "parallel_hash_ingestion" : {
+            "max_connections" : 8,
+            "enable" : false
+          },
+          "excluded_columns" : null,
+          "modified_columns_names" : null,
+          "modified_columns" : null,
+          "ingestion_mode" : {
+            "mode" : "Drop & Re-create",
+            "enable" : true
+          },
+          "ingest_using_query" : {
+            "enable" : false,
+            "sql_query" : ""
+          },
+          "new_table_name" : "",
+          "dataplace_name" : "crawling sourcedb1694386371631",
+          "table_partitions" : []
+        }
+      ],
+      "flow_details" : {
+        "pipeline_retry" : false,
+        "ignore_data_types" : [],
+        "schema_drift" : {
+          "email_ids" : [
+            "sanjana.peddi@modak.com"
+          ],
+          "advanced_options_sub_type" : "ignore_table",
+          "config" : {
+            "suffix" : "",
+            "timestamp" : ""
+          },
+          "enabled" : false
+        },
+        "skip_verification" : true,
+        "ignore_null_tables" : false,
+        "pre_conditions" : {
+          "pipeline_timeout" : 8,
+          "enabled" : true
+        },
+        "post_conditions" : {
+          "rest_api_details" : [
+            {
+              "valid" : true,
+              "status_code_id" : 21,
+              "ordinal_position" : 1,
+              "rest_api_id" : 1,
+              "payload" : "",
+              "rest_api_name" : "test rest api",
+              "status_code_description" : "COMPLETED"
+            }
+          ],
+          "enabled" : true
+        },
+        "parallel_source_connections" : 2,
+        "destination_file_format" : "Parquet",
+        "verification_threshold" : "",
+        "retry_count" : 0,
+        "pipeline_flow_timeout" : 2,
+        "pipeline_details" : [
+          {
+            "data_movement_name" : "sm1511_delimited",
+            "status_code_description" : "COMPLETED"
+          }
+        ],
+        "email_notification" : {
+          "on_failure" : [
+            "sanjana.peddi@modak.com"
+          ],
+          "on_success" : [
+            "sanjana.peddi@modak.com"
+          ],
+          "email_check" : false
+        },
+        "unsupported_data_types" : [
+          {
+            "asis" : [],
+            "null" : [],
+            "ignore" : [],
+            "customtext" : []
+          }
+        ],
+        "archive_data" : {
+          "archive_files_path" : "",
+          "enabled" : false,
+          "file_format" : ""
+        }
+      },
+      "next_schedule_date" : null
+    }
+  ],
+  "data_movement_details" : [
+    {
+      "dataplace_name" : "crawling sourcedb1694386371631",
+      "schema_name" : "chembl",
+      "total_count" : 1,
+      "ingest_all_tables_views" : [
+        "T",
+        "V",
+        "M"
+      ],
+      "filters_list" : [
+        {
+          "filter_name" : "static",
+          "filter_value" : [
+            "action_type"
+          ],
+          "filter_type" : "Static",
+          "priority_order" : 2
+        }
+      ]
+    }
+  ]
+}
